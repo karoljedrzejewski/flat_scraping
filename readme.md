@@ -1,6 +1,6 @@
-# OLX Gdańsk Flat Scraper 🏠
+# Gdańsk Flat Scraper 🏠
 
-A Python script for scraping apartment listings from **OLX.pl** (category: real estate → apartments → Gdańsk). The data is filtered, processed, and saved to a CSV file.
+A Python script for scraping apartment listings from **OLX.pl** and **ogloszenia.trojmiasto.pl** (category: real estate → apartments → Gdańsk). The data is filtered, processed, and saved to a CSV file.
 
 ## 📦 What does the script do?
 
@@ -16,7 +16,7 @@ A Python script for scraping apartment listings from **OLX.pl** (category: real 
 - Filters out listings:
   - smaller than 30 m²
   - or with price per m² lower than `PRICE_THRESH` (default: 2000 PLN/m²)
-- Saves the cleaned data to a `flat_olx.csv` file with properly quoted text fields
+- Saves the cleaned data to a `data.csv` file with properly quoted text fields
 
 ## 📄 Sample CSV output
 
