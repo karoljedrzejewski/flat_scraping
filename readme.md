@@ -1,25 +1,52 @@
-# Gdańsk Flat Scraper 🏠
+# 🏙️ Gdańsk Flat Scraper & Analyzer
 
-A Python script for scraping apartment listings from **OLX.pl** and **ogloszenia.trojmiasto.pl** (category: real estate → apartments → Gdańsk). The data is filtered, processed, and saved to a CSV file.
+A data pipeline project for **scraping apartment listings in Gdańsk** and **analyzing prices using PySpark**. Built with **Airflow**, **Docker**, and optionally integrated with **GCP (BigQuery, GCS)** for production deployments.
 
-## 📦 What does the script do?
+---
 
-- Navigates through all pages of apartment listings in Gdańsk on OLX.pl
-- Extracts key information such as:
-  - Location
-  - Price
-  - Area in m²
-  - Price per m²
-  - Listing date
-  - Title
-  - Link to the listing
-- Filters out listings:
-  - smaller than 30 m²
-  - or with price per m² lower than `PRICE_THRESH` (default: 2000 PLN/m²)
-- Saves the cleaned data to a `data.csv` file with properly quoted text fields
+## 🚀 What does the project do?
 
-## 📄 Sample CSV output
+This project automates the process of:
 
-```csv
-"Location","Price","m2","p/m2","Date","Text","hl"
-"Gdańsk, Zaspa","490000",56.0,8750.0,"28 April 2025","3-room flat with balcony","https://www.olx.pl/d/oferta/..."
+1. **Scraping** listings from:
+   - `OLX.pl`
+   - `ogloszenia.trojmiasto.pl`
+   - (more sources can be added)
+
+2. **Cleaning & filtering** the data:
+   - filters out listings with:
+     - area smaller than 30 m²
+     - or price per m² lower than a threshold (`PRICE_THRESH`)
+
+3. **Saving raw and cleaned data** into CSV format
+
+4. **Analyzing** with PySpark:
+   - average price per location
+   - average price per m²
+   - top 5 largest and smallest flats
+   - number of offers per location
+   - median and mean price per m²
+
+---
+
+## ⚙️ Technologies used
+
+- Python 3.10+
+- Apache Airflow
+- Apache Spark (PySpark)
+- Docker & Docker Compose
+- Pandas, BeautifulSoup
+
+---
+
+## ▶️ How to run the project
+
+### 1. Clone the repo
+
+git clone https://github.com/your_username/flat_scraping.git
+
+### 2. Start Airflow with Docker Compose
+
+docker-compose up --build
+
+Airflow will be available at http://localhost:8080
